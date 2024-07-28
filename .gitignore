@@ -135,6 +135,7 @@ dmypy.json
 .env
 models/*.sqlite
 data/*.session
+data/*.session-journal
 test.py
 
 __pypackages__

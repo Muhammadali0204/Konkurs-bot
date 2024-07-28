@@ -1,4 +1,4 @@
-import asyncio, datetime
+import asyncio, datetime, pytz
 
 from typing import List
 from aiogram.fsm.context import FSMContext
@@ -79,7 +79,7 @@ async def check2(msg : Message, state : FSMContext):
 
 @router.message(F.text == "🎁Giveawaylar ro'yxatini olish")
 async def get_giveaway(msg : Message, state : FSMContext):
-    today = datetime.date.today()
+    today = datetime.datetime.now(pytz.timezone('Asia/Tashkent')).date()
     hafta = [today + datetime.timedelta(days=i) for i in range(0, 7)]
     text = f"<b>Qaysi kungi giveawaylar ro'yxati kerak ❓</b>"
     await msg.answer(text=text, reply_markup=hafta_key.keyboard(hafta))
