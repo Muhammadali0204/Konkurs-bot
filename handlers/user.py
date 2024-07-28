@@ -96,7 +96,7 @@ async def ruyxat(call : CallbackQuery, state : FSMContext):
         date = datetime.date.fromisoformat(data)
         today_giveaways : List[Telethon_msg] = []
     
-        async for give in client.iter_messages('giveaways_tg_uz'):
+        async for give in client.iter_messages(CHANNEL_USERNAME):
             if type(give) == Telethon_msg and type(give.media) == MessageMediaGiveaway:
                 give_date = give.media.until_date + datetime.timedelta(hours=5)
                 if give_date.date() == date:
@@ -116,7 +116,7 @@ async def ruyxat(call : CallbackQuery, state : FSMContext):
         i = 1
         for msg in today_giveaways:
             msg : Telethon_msg
-            text2 += f"{i}. <a href = 'https://t.me/giveaways_tg_uz/{msg.id}'>{msg.media.quantity} ta {msg.media.months} oy {(msg.media.until_date + datetime.timedelta(hours=5)).time()}</a>\n"
+            text2 += f"{i}. <a href = 'https://t.me/{CHANNEL_USERNAME}/{msg.id}'>{msg.media.quantity} ta {msg.media.months} oy {(msg.media.until_date + datetime.timedelta(hours=5)).time()}</a>\n"
             i += 1
 
         if text2 == "":
