@@ -75,7 +75,7 @@ async def check2(msg : Message, state : FSMContext):
         await msg.answer("<b>Botdan foydalana olish uchun quyidagi kanallarga obuna bo'ling !</b>", reply_markup=azo_bulmagan_key.keyboard(azo_bulmagan))
     else:
         await state.clear()
-        await msg.answer("<b>Tabriklaymiz 🎉 Botdan foydalanishingiz mumkin !</b>", reply_markup=menu.menu)
+        await msg.answer("<b>Tabriklaymiz 🎉\nBotdan foydalanishingiz mumkin !</b>", reply_markup=menu.menu)
 
 @router.message(F.text == "🎁Giveawaylar ro'yxatini olish")
 async def get_giveaway(msg : Message, state : FSMContext):
